@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<meta charset="utf-8">
+<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/pure-min.css">
+<link rel="stylesheet" href="../src/polarArea-chart.css">
+<head>
+  <style>
+    body {
+      padding: 20px;
+    }
+    .polarArea-chart .area {
+      fill-opacity: 0.7;
+    }
+    .polarArea-chart.focus .area {
+      fill-opacity: 0.3;
+    }
+    .polarArea-chart.focus .area.focused {
+      fill-opacity: 0.9;
+    }
+  </style>
+
+  <script type="text/javascript" src="//d3js.org/d3.v3.js"></script>
+  <script type="text/javascript" src="../src/polarArea-chart.js"></script>
+
+  <script type="text/javascript">
+//    PolarAreaChart.defaultConfig.color = function() {};
+//    PolarAreaChart.defaultConfig.radius = 3;
+  </script>
+
+  <script type="text/javascript">
+    var headers = ["Strategic & Aligned", "Adaptability", "Talent Development", "Empowering",
+                   "Collaborative", "Employee Engagement", "Integrity", "Accountable", "Innovative"];
+    var polarValues = [
+      {
+        color: "red",
+        name: "6/10/2016",
+        values: [9,8,7,6,5,4,3,2,1]
+      }
+      ];
+    function randomDataset() {
+      return polarValues.map(function(d) {
+        values = [];
+        d.values.forEach(function (value) {
+          values.push(Math.random() * 10);
+        });
+        return {
+          color: d.color,
+          name: d.name,
+          values: values
+        };
+      });
+    }
+  </script>
+</head>
+<body>
+  <h1>Polar Area Chart</h1>
+  <p>A reusable chart implementation in D3.js</p>
+
+  <h2>Reusable D3 API</h2>
+
+  <script type="text/javascript">
+//  var chart = PolarArea.chart();
+//  var cfg = chart.config(); // retrieve default config
+//  var svg = d3.select('body').append('svg')
+//    .attr('width', cfg.w)
+//    .attr('height', cfg.h + cfg.h / 4);
+//  svg.append('g').classed('single', 1).datum(randomDataset()).call(chart);
+//
+  // many radars
+  chart.config({w: cfg.w / 4, h: cfg.h / 4, axisText: false, levels: 0, circles: false});
+  cfg = chart.config();
+  function render() {
+    var game = svg.selectAll('g.game').data(
+      [
+        randomDataset(),
+        randomDataset(),
+        randomDataset(),
+        randomDataset()
+      ]
+    );
+//    game.enter().append('g').classed('game', 1);
+//    game
+//      .attr('transform', function(d, i) { return 'translate('+(i * cfg.w)+','+ (cfg.h * 4) +')'; })
+//      .call(chart);
+//
+//    setTimeout(render, 1000);
+//  }
+//  render();
+  </script>
+
+
+  <h2>Simple single chart drawing</h2>
+  <h3>No lines, only ticks</h3>
+  <div class="chart-container"></div>
+  <script type="text/javascript">
+//    PolarAreaChart.defaultConfig.levelTick = true;
+    var PolarAreaChartOptions = {
+          w: 600,
+          h: 600,
+          margin: {top: 100, right: 100, bottom: 100, left: 100},
+          maxValue: 10,
+          levels: 10,
+          roundStrokes: true,
+          radius: 3
+        };
+    PolarAreaChart(".chart-container", headers, randomDataset()[0], PolarAreaChartOptions);
+  </script>
+
+</body>
+</html>

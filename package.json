@@ -1,0 +1,32 @@
+{
+  "name": "polarArea-chart-d3",
+  "version": "1.2.1",
+  "description": "Polar Area chart based on D3",
+  "license": "Apache-2.0",
+  "main": "src/polarArea-chart.js",
+  "style": "src/polarArea-chart.css",
+  "dependencies": {
+    "d3": "~3.5.5"
+  },
+  "directories": {
+    "example": "example"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bkuehlhorn/polarArea-chart-d3.git"
+  },
+  "keywords": [
+    "d3",
+    "polarArea",
+    "polarArea-chart",
+    "visualization"
+  ],
+  "author": "b kuehlhorn",
+  "bugs": {
+    "url": "https://github.com/bkuehlhorn/polarArea-chart-d3/issues"
+  },
+  "homepage": "https://github.com/bkuehlhorn/polarArea-chart-d3#readme"
+}
